@@ -1,10 +1,3 @@
-/**
- * Linked List Based Data Structures
- * Undergraduate DSA Assignment
- * Implements: Stack, Single Queue, Circular Queue (simulated), Priority Queue
- * All operations using singly linked list nodes.
- */
-
 class Node {
     int data;
     Node next;
@@ -17,11 +10,6 @@ class Node {
 
 public class LinkedListBasedDataStructures {
 
-    /**
-     * (a) STACK using Linked List - LIFO
-     * Advantages: Dynamic size (no fixed capacity), no overflow until memory runs out.
-     * Top is always the head of the linked list.
-     */
     static class LinkedStack {
         private Node top;        // Head of the list (top of stack)
         private int size;
@@ -31,7 +19,6 @@ public class LinkedListBasedDataStructures {
             this.size = 0;
         }
 
-        // Push: Add new node at the beginning (head)
         public void push(int item) {
             Node newNode = new Node(item);
             newNode.next = top;
@@ -40,7 +27,6 @@ public class LinkedListBasedDataStructures {
             System.out.println(item + " pushed into stack");
         }
 
-        // Pop: Remove and return the top node
         public int pop() {
             if (isEmpty()) {
                 System.out.println("Stack Underflow! Cannot pop");
@@ -53,7 +39,6 @@ public class LinkedListBasedDataStructures {
             return item;
         }
 
-        // Peek: View top element without removing
         public int peek() {
             if (isEmpty()) {
                 System.out.println("Stack is empty");
@@ -76,7 +61,7 @@ public class LinkedListBasedDataStructures {
                 System.out.println("Stack is empty");
                 return;
             }
-            System.out.print("Stack (Top -> Bottom): ");
+            System.out.print("Stack (Top to Bottom): ");
             Node current = top;
             while (current != null) {
                 System.out.print(current.data + " ");
@@ -86,11 +71,7 @@ public class LinkedListBasedDataStructures {
         }
     }
 
-    /**
-     * (b) SINGLE / LINEAR QUEUE using Linked List - FIFO
-     * Front for dequeue, Rear for enqueue.
-     * Dynamic size, no space wastage.
-     */
+
     static class LinkedQueue {
         private Node front, rear;
         private int size;
@@ -101,7 +82,6 @@ public class LinkedListBasedDataStructures {
             this.size = 0;
         }
 
-        // Enqueue: Add at the rear
         public void enqueue(int item) {
             Node newNode = new Node(item);
             if (isEmpty()) {
@@ -114,7 +94,6 @@ public class LinkedListBasedDataStructures {
             System.out.println(item + " enqueued into linear queue");
         }
 
-        // Dequeue: Remove from the front
         public int dequeue() {
             if (isEmpty()) {
                 System.out.println("Linear Queue is empty! Cannot dequeue");
@@ -152,7 +131,7 @@ public class LinkedListBasedDataStructures {
                 System.out.println("Linear Queue is empty");
                 return;
             }
-            System.out.print("Linear Queue (Front -> Rear): ");
+            System.out.print("Linear Queue (Front to Rear): ");
             Node current = front;
             while (current != null) {
                 System.out.print(current.data + " ");
@@ -162,11 +141,6 @@ public class LinkedListBasedDataStructures {
         }
     }
 
-    /**
-     * (b) CIRCULAR QUEUE using Linked List
-     * In singly linked list, we make rear.next point back to front.
-     * This creates a true circular structure.
-     */
     static class LinkedCircularQueue {
         private Node front, rear;
         private int size;
@@ -177,7 +151,7 @@ public class LinkedListBasedDataStructures {
             this.size = 0;
         }
 
-        // Enqueue: Add at rear and make rear.next = front
+        // Add at rear and make rear.next = front
         public void enqueue(int item) {
             Node newNode = new Node(item);
             if (isEmpty()) {
@@ -192,7 +166,7 @@ public class LinkedListBasedDataStructures {
             System.out.println(item + " enqueued into circular queue");
         }
 
-        // Dequeue: Remove from front and update rear.next
+        // Remove from front and update rear.next
         public int dequeue() {
             if (isEmpty()) {
                 System.out.println("Circular Queue is empty! Cannot dequeue");
@@ -211,7 +185,6 @@ public class LinkedListBasedDataStructures {
             return item;
         }
 
-        // Peek front
         public int peek() {
             if (isEmpty()) {
                 System.out.println("Circular Queue is empty");
@@ -243,12 +216,7 @@ public class LinkedListBasedDataStructures {
         }
     }
 
-    /**
-     * (b) PRIORITY QUEUE using Linked List (Sorted - Highest priority at front)
-     * Here: Higher number = Higher priority.
-     * We maintain the list in descending order so dequeue is O(1).
-     * Enqueue inserts at correct position (O(n) worst case).
-     */
+
     static class LinkedPriorityQueue {
         private Node front;
         private int size;
@@ -258,7 +226,7 @@ public class LinkedListBasedDataStructures {
             this.size = 0;
         }
 
-        // Enqueue: Insert in sorted position (descending order)
+        // Insert in sorted position (descending order)
         public void enqueue(int item) {
             Node newNode = new Node(item);
 
@@ -279,7 +247,7 @@ public class LinkedListBasedDataStructures {
             System.out.println(item + " enqueued into priority queue (higher number = higher priority)");
         }
 
-        // Dequeue: Remove highest priority (front of list)
+        // Remove highest priority (front of list)
         public int dequeue() {
             if (isEmpty()) {
                 System.out.println("Priority Queue is empty! Cannot dequeue");
@@ -328,10 +296,11 @@ public class LinkedListBasedDataStructures {
      * Main method - Demonstration of all linked list implementations
      */
     public static void main(String[] args) {
-        System.out.println("=== LINKED LIST BASED DATA STRUCTURES DEMO ===\n");
+        System.out.println("LINKED LIST BASED DATA STRUCTURES\n");
+        System.out.println("---------------------------------\n");
 
         // 1. Stack Demo
-        System.out.println("1. LINKED STACK DEMO:");
+        System.out.println("1. LINKED STACK:");
         LinkedStack stack = new LinkedStack();
         stack.push(10);
         stack.push(20);
@@ -342,7 +311,7 @@ public class LinkedListBasedDataStructures {
         stack.display();
 
         // 2. Linear Queue Demo
-        System.out.println("\n2. LINKED LINEAR QUEUE DEMO:");
+        System.out.println("\n2. LINKED LINEAR:");
         LinkedQueue linearQ = new LinkedQueue();
         linearQ.enqueue(1);
         linearQ.enqueue(2);
@@ -354,7 +323,7 @@ public class LinkedListBasedDataStructures {
         linearQ.display();
 
         // 3. Circular Queue Demo
-        System.out.println("\n3. LINKED CIRCULAR QUEUE DEMO:");
+        System.out.println("\n3. LINKED CIRCULAR QUEUE:");
         LinkedCircularQueue circularQ = new LinkedCircularQueue();
         circularQ.enqueue(100);
         circularQ.enqueue(200);
@@ -365,7 +334,7 @@ public class LinkedListBasedDataStructures {
         circularQ.display();
 
         // 4. Priority Queue Demo
-        System.out.println("\n4. LINKED PRIORITY QUEUE DEMO:");
+        System.out.println("\n4. LINKED PRIORITY QUEUE:");
         LinkedPriorityQueue pq = new LinkedPriorityQueue();
         pq.enqueue(5);
         pq.enqueue(15);
@@ -374,10 +343,9 @@ public class LinkedListBasedDataStructures {
         pq.enqueue(10);
         pq.display();
         System.out.println("Peek highest: " + pq.peek());
-        pq.dequeue();   // removes 20
+        pq.dequeue();   
         pq.display();
 
         System.out.println("\nAll linked list implementations completed successfully!");
-        System.out.println("Key Advantage: Dynamic size - no fixed capacity limit.");
     }
 }

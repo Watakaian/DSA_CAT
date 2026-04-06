@@ -1,15 +1,3 @@
-/**
- * Linked List Implemented Using Array (Static Linked List)
- *
- * Concept:
- * - We use a fixed-size array to simulate nodes.
- * - Each "node" has two fields: data and next (but next is an INDEX, not a pointer).
- * - We maintain a free list (available nodes) using the 'next' field.
- * - This combines the random access of arrays with the dynamic linking of linked lists.
- *
- * Perfect for assignments that ask: "Implement Linked List using Array"
- */
-
 public class ArrayLinkedList {
 
     // Inner class representing one node in the array
@@ -29,10 +17,7 @@ public class ArrayLinkedList {
     private int free;          // Head of the free list (available nodes)
     private int size;          // Current number of elements in the list
 
-    /**
-     * Constructor: Initialize the array-based linked list
-     * @param capacity Maximum number of nodes the list can hold
-     */
+    
     public ArrayLinkedList(int capacity) {
         this.capacity = capacity;
         this.nodes = new Node[capacity];
@@ -48,10 +33,7 @@ public class ArrayLinkedList {
         free = 0;                  // Free list starts at index 0
     }
 
-    /**
-     * Allocate a new node from the free list
-     * @return index of allocated node, or -1 if no space
-     */
+
     private int allocateNode() {
         if (free == -1) {
             System.out.println("No more space available in array!");
@@ -62,10 +44,6 @@ public class ArrayLinkedList {
         return newIndex;
     }
 
-    /**
-     * Return a node back to the free list
-     * @param index Index of node to free
-     */
     private void freeNode(int index) {
         nodes[index].next = free;  // Point this node to current free list
         free = index;              // Make this the new head of free list
@@ -260,7 +238,5 @@ public class ArrayLinkedList {
         list.deleteFromEnd();
         list.display();
 
-        System.out.println("\nArray Linked List demonstration completed!");
-        System.out.println("This shows how a linked list can be simulated using only an array.");
     }
 }

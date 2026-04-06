@@ -1,23 +1,11 @@
-import java.util.*;
-
-/**
- * Demonstration of Built-in Java Data Structures
- *
- * Classes used:
- * 1. java.util.Stack          - LIFO (Legacy class)
- * 2. java.util.LinkedList     - Implements both List and Deque (can be used as Queue)
- * 3. java.util.Queue          - Interface (we use LinkedList as implementation)
- *
- * This code shows practical usage with clear comments and output.
- * Perfect for undergraduate DSA presentation.
- */
+import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BuiltInDataStructuresDemo {
 
     public static void main(String[] args) {
-        System.out.println("=== BUILT-IN JAVA DATA STRUCTURES DEMO ===\n");
-
-        // ====================== 1. STACK ======================
+        // 1. STACK 
         System.out.println("1. Using java.util.Stack (LIFO)");
         Stack<Integer> stack = new Stack<>();
 
@@ -45,12 +33,12 @@ public class BuiltInDataStructuresDemo {
 
         System.out.println("----------------------------------------\n");
 
-        // ====================== 2. QUEUE (using LinkedList) ======================
+        // 2. QUEUE (using LinkedList) 
         System.out.println("2. Using Queue Interface with LinkedList (FIFO)");
         Queue<Integer> queue = new LinkedList<>();
 
         // Enqueue (add elements at rear)
-        queue.offer(100);   // Recommended over add() for queues
+        queue.offer(100);   
         queue.offer(200);
         queue.offer(300);
         queue.offer(400);
@@ -69,21 +57,21 @@ public class BuiltInDataStructuresDemo {
 
         System.out.println("----------------------------------------\n");
 
-        // ====================== 3. LINKEDLIST (as Doubly Linked List) ======================
+        // 3. LINKEDLIST 
         System.out.println("3. Using java.util.LinkedList directly");
         LinkedList<String> list = new LinkedList<>();
 
         // Add elements (at end by default)
         list.add("Apple");
         list.add("Banana");
-        list.add("Cherry");
+        list.add("Strawberry");
         list.add("Date");
 
         System.out.println("LinkedList: " + list);
 
         // Add at specific positions
         list.addFirst("Mango");           // Add at beginning
-        list.addLast("Elderberry");       // Add at end
+        list.addLast("Grapes");       // Add at end
 
         System.out.println("After addFirst and addLast: " + list);
 
@@ -100,7 +88,7 @@ public class BuiltInDataStructuresDemo {
         System.out.println("After removing 'Banana': " + list);
 
         // Check containment
-        System.out.println("Contains 'Cherry'? " + list.contains("Cherry"));
+        System.out.println("Contains 'Grapes'? " + list.contains("Grapes"));
 
         // Iterate using for-each
         System.out.print("Iterating the list: ");
@@ -116,7 +104,7 @@ public class BuiltInDataStructuresDemo {
 
         System.out.println("----------------------------------------\n");
 
-        // ====================== 4. PRACTICAL EXAMPLE: Simple Task Manager ======================
+        // Simple Task Manager
         System.out.println("4. Practical Example - Undo/Redo using Stack + Task Queue");
 
         Stack<String> undoStack = new Stack<>();
@@ -143,10 +131,5 @@ public class BuiltInDataStructuresDemo {
             System.out.println("Undoing: " + undoStack.pop());
         }
 
-        System.out.println("\nDemo completed successfully!");
-        System.out.println("Key takeaway:");
-        System.out.println("- Stack  → Best for LIFO (Undo, function calls, browser history)");
-        System.out.println("- Queue  → Best for FIFO (Task scheduling, BFS, printer queue)");
-        System.out.println("- LinkedList → Flexible: supports both stack & queue operations + efficient add/remove at both ends");
     }
 }

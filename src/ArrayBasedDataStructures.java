@@ -1,24 +1,17 @@
 public class ArrayBasedDataStructures {
 
-    /**
-     * (a) STACK using fixed-size array - LIFO (Last In, First Out)
-     * Key idea: Use a 'top' index that starts at -1 (empty).
-     * Push increases top, pop decreases it.
-     * Simple and O(1) time for all operations.
-     */
     static class ArrayStack {
         private int[] stack;     // Array to hold stack elements
         private int top;         // Index of the top element
         private int capacity;    // Maximum size of the stack
 
-        // Constructor: Initialize empty stack with given capacity
+        // empty stack with capacity provided when creating stack
         public ArrayStack(int capacity) {
             this.capacity = capacity;
             this.stack = new int[capacity];
-            this.top = -1;       // Empty stack indicator
+            this.top = -1;       // Empty stack
         }
 
-        // Push: Add element to the top
         public void push(int item) {
             if (isFull()) {
                 System.out.println("Stack Overflow! Cannot push " + item);
@@ -28,7 +21,6 @@ public class ArrayBasedDataStructures {
             System.out.println(item + " pushed into stack");
         }
 
-        // Pop: Remove and return top element
         public int pop() {
             if (isEmpty()) {
                 System.out.println("Stack Underflow! Cannot pop");
@@ -39,7 +31,7 @@ public class ArrayBasedDataStructures {
             return item;
         }
 
-        // Peek: View top element without removing it
+        // Viewing of top element without removing it
         public int peek() {
             if (isEmpty()) {
                 System.out.println("Stack is empty");
@@ -48,12 +40,10 @@ public class ArrayBasedDataStructures {
             return stack[top];
         }
 
-        // Check if stack is empty
         public boolean isEmpty() {
             return top == -1;
         }
 
-        // Check if stack is full
         public boolean isFull() {
             return top == capacity - 1;
         }
@@ -64,7 +54,7 @@ public class ArrayBasedDataStructures {
                 System.out.println("Stack is empty");
                 return;
             }
-            System.out.print("Stack elements (bottom -> top): ");
+            System.out.print("Stack elements (bottom to top): ");
             for (int i = 0; i <= top; i++) {
                 System.out.print(stack[i] + " ");
             }
@@ -72,18 +62,11 @@ public class ArrayBasedDataStructures {
         }
     }
 
-    /**
-     * (b) SINGLE/LINEAR QUEUE using fixed-size array - FIFO (First In, First Out)
-     * Key idea: front pointer for removal, rear pointer for insertion.
-     * rear == capacity means full (space before front is wasted after dequeues).
-     * This shows the classic limitation of linear queues.
-     */
     static class ArrayQueue {
         private int[] queue;     // Array to hold queue elements
         private int front, rear; // Pointers for front and next available slot
         private int capacity;
 
-        // Constructor: Initialize empty linear queue
         public ArrayQueue(int capacity) {
             this.capacity = capacity;
             this.queue = new int[capacity];
@@ -91,7 +74,6 @@ public class ArrayBasedDataStructures {
             this.rear = 0;       // rear points to next insertion position
         }
 
-        // Enqueue: Add element at rear
         public void enqueue(int item) {
             if (isFull()) {
                 System.out.println("Linear Queue is full! Cannot enqueue " + item);
@@ -101,7 +83,6 @@ public class ArrayBasedDataStructures {
             System.out.println(item + " enqueued into linear queue");
         }
 
-        // Dequeue: Remove element from front
         public int dequeue() {
             if (isEmpty()) {
                 System.out.println("Linear Queue is empty! Cannot dequeue");
@@ -112,7 +93,7 @@ public class ArrayBasedDataStructures {
             return item;
         }
 
-        // Peek: View front element without removing
+        // View front element without removing it
         public int peek() {
             if (isEmpty()) {
                 System.out.println("Linear Queue is empty");
@@ -121,12 +102,10 @@ public class ArrayBasedDataStructures {
             return queue[front];
         }
 
-        // Check if empty
         public boolean isEmpty() {
             return front == rear;
         }
 
-        // Check if full (rear reached end of array)
         public boolean isFull() {
             return rear == capacity;
         }
@@ -137,26 +116,18 @@ public class ArrayBasedDataStructures {
                 System.out.println("Linear Queue is empty");
                 return;
             }
-            System.out.print("Linear Queue elements (front -> rear): ");
+            System.out.print("Linear Queue elements (front to rear): ");
             for (int i = front; i < rear; i++) {
                 System.out.print(queue[i] + " ");
             }
             System.out.println();
-            System.out.println("   Note: Space before 'front' is wasted (linear queue limitation).");
         }
     }
 
-    /**
-     * (b) CIRCULAR QUEUE using fixed-size array - FIFO with wrap-around
-     * Key idea: Use modulo (%) operator so rear/front wrap around to start of array.
-     * 'size' variable tracks count of elements to distinguish empty vs full.
-     * Solves the space wastage problem of linear queue.
-     */
     static class CircularQueue {
         private int[] queue;
         private int front, rear, capacity, size;
 
-        // Constructor: Initialize empty circular queue
         public CircularQueue(int capacity) {
             this.capacity = capacity;
             this.queue = new int[capacity];
@@ -165,32 +136,29 @@ public class ArrayBasedDataStructures {
             this.size = 0;
         }
 
-        // Enqueue: Add element at rear with wrap-around
         public void enqueue(int item) {
             if (isFull()) {
-                System.out.println("Circular Queue is full! Cannot enqueue " + item);
+                System.out.println("Circular Queue is full, Cannot enqueue " + item);
                 return;
             }
             queue[rear] = item;
-            rear = (rear + 1) % capacity; // Wrap around using modulo
+            rear = (rear + 1) % capacity; 
             size++;
             System.out.println(item + " enqueued into circular queue");
         }
 
-        // Dequeue: Remove element from front with wrap-around
         public int dequeue() {
             if (isEmpty()) {
-                System.out.println("Circular Queue is empty! Cannot dequeue");
+                System.out.println("Circular Queue is empty, Cannot dequeue");
                 return -1;
             }
             int item = queue[front];
-            front = (front + 1) % capacity; // Wrap around
+            front = (front + 1) % capacity; 
             size--;
             System.out.println(item + " dequeued from circular queue");
             return item;
         }
 
-        // Peek: View front element
         public int peek() {
             if (isEmpty()) {
                 System.out.println("Circular Queue is empty");
@@ -199,17 +167,14 @@ public class ArrayBasedDataStructures {
             return queue[front];
         }
 
-        // Check if empty
         public boolean isEmpty() {
             return size == 0;
         }
 
-        // Check if full
         public boolean isFull() {
             return size == capacity;
         }
 
-        // Display current elements (handles wrap-around)
         public void display() {
             if (isEmpty()) {
                 System.out.println("Circular Queue is empty");
@@ -225,24 +190,16 @@ public class ArrayBasedDataStructures {
         }
     }
 
-    /**
-     * (b) PRIORITY QUEUE using fixed-size array (simple unsorted version)
-     * Key idea: Enqueue just adds to end. Dequeue/peek finds highest priority (largest value)
-     * by scanning the array, then shifts elements to remove it.
-     * Not FIFO - order based on priority value. O(n) for dequeue/peek but very simple.
-     */
     static class ArrayPriorityQueue {
         private int[] queue;
         private int capacity, size;
 
-        // Constructor: Initialize empty priority queue
         public ArrayPriorityQueue(int capacity) {
             this.capacity = capacity;
             this.queue = new int[capacity];
             this.size = 0;
         }
 
-        // Enqueue: Simply add to end (no sorting)
         public void enqueue(int item) {
             if (isFull()) {
                 System.out.println("Priority Queue is full! Cannot enqueue " + item);
@@ -252,7 +209,6 @@ public class ArrayBasedDataStructures {
             System.out.println(item + " enqueued into priority queue (higher number = higher priority)");
         }
 
-        // Dequeue: Find and remove highest priority element (largest value)
         public int dequeue() {
             if (isEmpty()) {
                 System.out.println("Priority Queue is empty! Cannot dequeue");
@@ -275,7 +231,7 @@ public class ArrayBasedDataStructures {
             return item;
         }
 
-        // Peek: View highest priority without removing
+        // Viewing of highest priority no. without removing
         public int peek() {
             if (isEmpty()) {
                 System.out.println("Priority Queue is empty");
@@ -298,7 +254,6 @@ public class ArrayBasedDataStructures {
             return size == capacity;
         }
 
-        // Display current elements (unsorted)
         public void display() {
             if (isEmpty()) {
                 System.out.println("Priority Queue is empty");
@@ -312,16 +267,13 @@ public class ArrayBasedDataStructures {
         }
     }
 
-    /**
-     * Main method - Demo all data structures with sample operations
-     * Run this to test everything works.
-     * You can modify capacities or add more operations for your presentation.
-     */
+
     public static void main(String[] args) {
-        System.out.println("=== ARRAY-BASED DATA STRUCTURES DEMO (Undergraduate DSA) ===\n");
+        System.out.println("ARRAY-BASED DATA STRUCTURES");
+        System.out.println("---------------------------");
 
         // Stack demo
-        System.out.println("1. STACK DEMO:");
+        System.out.println("1. STACK:");
         ArrayStack stack = new ArrayStack(5);
         stack.push(10);
         stack.push(20);
@@ -331,8 +283,7 @@ public class ArrayBasedDataStructures {
         stack.pop();
         stack.display();
 
-        // Linear Queue demo (shows space waste)
-        System.out.println("\n2. LINEAR QUEUE DEMO:");
+        System.out.println("\n2. SIMPLE QUEUE:");
         ArrayQueue linearQ = new ArrayQueue(5);
         linearQ.enqueue(1);
         linearQ.enqueue(2);
@@ -343,11 +294,10 @@ public class ArrayBasedDataStructures {
         linearQ.dequeue();
         linearQ.dequeue();
         linearQ.display();
-        linearQ.enqueue(6); // Should say full even though space exists at front
+        linearQ.enqueue(6); 
         linearQ.display();
 
-        // Circular Queue demo (shows space reuse)
-        System.out.println("\n3. CIRCULAR QUEUE DEMO:");
+        System.out.println("\n3. CIRCULAR QUEUE:");
         CircularQueue circularQ = new CircularQueue(5);
         circularQ.enqueue(100);
         circularQ.enqueue(200);
@@ -355,7 +305,7 @@ public class ArrayBasedDataStructures {
         circularQ.display();
         circularQ.dequeue();
         circularQ.dequeue();
-        circularQ.enqueue(400); // Reuses space!
+        circularQ.enqueue(400);
         circularQ.enqueue(500);
         circularQ.display();
 
@@ -369,9 +319,8 @@ public class ArrayBasedDataStructures {
         pq.enqueue(10);
         pq.display();
         System.out.println("Peek highest: " + pq.peek());
-        pq.dequeue(); // Should remove 20 (highest)
+        pq.dequeue();
         pq.display();
 
-        System.out.println("\nDemo complete! All operations implemented using arrays.");
     }
 }
