@@ -307,6 +307,9 @@ public class ArrayBasedDataStructures {
         circularQ.dequeue();
         circularQ.enqueue(400);
         circularQ.enqueue(500);
+        circularQ.enqueue(600);
+        circularQ.enqueue(700);
+        circularQ.enqueue(800);
         circularQ.display();
 
         // Priority Queue demo
