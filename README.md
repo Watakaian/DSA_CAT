@@ -3,10 +3,10 @@ Developed by:Nesh
 Academic Institution: Masinde Muliro University of Science and Technology (MMUST)  
 Target Completion: 2026 (Refactored for Professional Portfolio)
 
-## 🚀 Overview
+## Overview
 This project is a comprehensive implementation of fundamental Data Structures and Algorithms, structured as a modular Java library. Originally designed to fulfill the requirements for a Continuous Assessment Test (CAT), it has been refactored into a professional architecture utilizing Java Packages to ensure clean code, scalability, and high maintainability.
 
-## 🏗️ Project Architecture
+## Project Architecture
 The project follows a modular package structure to separate logic concerns:
 
 | Package | Description |
@@ -17,7 +17,7 @@ The project follows a modular package structure to separate logic concerns:
 | **`com.nesh.dsa.inbuilt`** | Demonstrations of Java's built-in Collections Framework (ArrayList, Stack, Queue). |
 | **`com.nesh.dsa.ui`** | An interactive Command Line Interface (CLI) for real-time testing. |
 
-## 🛠️ Features Implemented
+## Features Implemented
 
 ### 1. Array-Based Structures (The "Scratch" Package)
 - Linear Stack: LIFO implementation with overflow/underflow checks.
@@ -34,7 +34,7 @@ The project follows a modular package structure to separate logic concerns:
 
 ---
 
-## 💻 How to Run
+## How to Run
 
 ### Prerequisites
 - JDK 11 or higher installed.
