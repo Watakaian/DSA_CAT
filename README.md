@@ -1,5 +1,5 @@
 # Java Data Structures & Algorithms Library
-Developed by:Nesh  
+Developed by:GROUP MEMBERS
 Academic Institution: Masinde Muliro University of Science and Technology (MMUST)  
 Target Completion: 2026 (Refactored for Professional Portfolio)
 
