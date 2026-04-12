@@ -1,13 +1,11 @@
 # Java Data Structures & Algorithms Library
 Developed by:GROUP MEMBERS
 Academic Institution: Masinde Muliro University of Science and Technology (MMUST)  
-Target Completion: 2026 (Refactored for Professional Portfolio)
 
 ## Overview
 This project is a comprehensive implementation of fundamental Data Structures and Algorithms, structured as a modular Java library.
 
 ## Project Architecture
-The project follows a modular package structure to separate logic concerns:
 
 | Package | Description |
 | :--- | :--- |
@@ -31,8 +29,6 @@ The project follows a modular package structure to separate logic concerns:
 
 ### 3. Hybrid Implementation
 - Array-Linked List: A sophisticated data structure that simulates a linked list within a static array, demonstrating deep understanding of memory management and indexing.
-
----
 
 ## How to Run
 
