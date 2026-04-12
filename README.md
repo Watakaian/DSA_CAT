@@ -44,4 +44,5 @@ The project follows a modular package structure to separate logic concerns:
 From the root directory (`DSA_CAT`), run the following command in your terminal:
 ```bash
 javac -d bin src/main/java/com/nesh/dsa/Main.java src/main/java/com/nesh/dsa/scratch/*.java src/main/java/com/nesh/dsa/linked/*.java src/main/java/com/nesh/dsa/hybrid/*.java src/main/java/com/nesh/dsa/inbuilt/*.java src/main/java/com/nesh/dsa/ui/*.java
-```Execution: java -cp bin com.nesh.dsa.Main
+
+java -cp bin com.nesh.dsa.Main
