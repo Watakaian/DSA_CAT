@@ -1,4 +1,4 @@
-# Java Data Structures & Algorithms Library
+# Java Data Structures & Algorithms 
 Developed by:GROUP MEMBERS
 Academic Institution: Masinde Muliro University of Science and Technology (MMUST)  
 
