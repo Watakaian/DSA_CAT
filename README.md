@@ -4,7 +4,7 @@ Academic Institution: Masinde Muliro University of Science and Technology (MMUST
 Target Completion: 2026 (Refactored for Professional Portfolio)
 
 ## Overview
-This project is a comprehensive implementation of fundamental Data Structures and Algorithms, structured as a modular Java library. Originally designed to fulfill the requirements for a Continuous Assessment Test (CAT), it has been refactored into a professional architecture utilizing Java Packages to ensure clean code, scalability, and high maintainability.
+This project is a comprehensive implementation of fundamental Data Structures and Algorithms, structured as a modular Java library.
 
 ## Project Architecture
 The project follows a modular package structure to separate logic concerns:
